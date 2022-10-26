@@ -49,8 +49,8 @@ public:
 
         while (root != nullptr || !s.empty()) {
             while (root != nullptr) {
-            s.push(root);
-            root = root->left;
+                s.push(root);
+                root = root->left;
             } 
 
             TreeNode *node = s.top();
