@@ -7,6 +7,7 @@
 class Solution:
     # python class內全域變數宣告方式，也可於main func內用list替代(python list為全域變數)
     def __init__(self):
+        # 若節點為單一節點必須走-->ex: -3
         self.maxSum = float("-inf")
 
     def maxPathSum(self, root: Optional[TreeNode]) -> int:

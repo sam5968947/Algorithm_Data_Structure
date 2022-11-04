@@ -13,6 +13,7 @@ class Solution {
 
 // C++ class內全域變數宣告方式，等同於python def __init__(self):
 private:
+    // 若節點為單一節點必須走-->ex: -3
     int res = INT_MIN;
 
 private:
