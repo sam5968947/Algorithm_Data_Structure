@@ -22,7 +22,8 @@ public:
                 break;
             }
         }
-
+        
+        // 透過mid的index取preorder、inorder會出現left與right的vector區段
         vector<int> pre_l = vector<int>(preorder.begin() + 1, preorder.begin() + mid + 1);
         vector<int> pre_r = vector<int>(preorder.begin() + mid + 1, preorder.end());
         vector<int> in_l = vector<int>(inorder.begin(), inorder.begin() + mid);
