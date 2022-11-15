@@ -1,15 +1,19 @@
 class Solution {
 public:
     string minWindow(string s, string t) {
+        if (s.find(t) != std::string::npos){
+            return t;
+        }
+
         // 求最小window，左while，右for，透過左右指針與s.substr(l_p,r_p)取解
         unordered_map<char, int> debt;
 
         for(int i = 0; i < t.length(); i++){
             debt[t[i]]++;
         }
-        for (auto it = debt.begin(); it != debt.end(); it++) {
-            std::cout << "key: " << (*it).first << ", value: " << (*it).second << "\n";
-        }
+        // for (auto it = debt.begin(); it != debt.end(); it++) {
+        //     std::cout << "key: " << (*it).first << ", value: " << (*it).second << "\n";
+        // }
 
         // 計數器，若debt[] = 0時+1，若counter = temp時可能為解
         int counter = 0;
@@ -25,12 +29,11 @@ public:
         // 右指針
         for(int r_p = 0; r_p < s.length(); r_p++){
             char ch = s[r_p];
-            r_p++; //???
+            // r_p++; //???
             // 若ch非我們在意的字元，skip
             if(debt.find(ch) == debt.end()){
                 continue;
             }
-            cout<<"we care~~~ "<<ch<<endl;
             // ch為我們在意的字元
             debt[ch]--;
             if(debt[ch] == 0){
@@ -38,13 +41,11 @@ public:
             }
             // 可能為解，移動左指針
             while(counter == debt.size() && l_p <= r_p){
-                cout<<l_p<<r_p<<endl;
                 // 更新解答
-                int cur_len = r_p - l_p;
+                int cur_len = r_p - l_p + 1;
                 if(cur_len < min_len){
                     min_len =  cur_len;
                     min_s = s.substr(l_p, min_len);
-                    cout<<min_s<<endl;
                 }
 
                 char ch = s[l_p];
