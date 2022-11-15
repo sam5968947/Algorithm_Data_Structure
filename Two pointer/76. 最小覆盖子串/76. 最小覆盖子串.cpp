@@ -7,6 +7,9 @@ public:
         for(int i = 0; i < t.length(); i++){
             debt[t[i]]++;
         }
+        for (auto it = debt.begin(); it != debt.end(); it++) {
+            std::cout << "key: " << (*it).first << ", value: " << (*it).second << "\n";
+        }
 
         // 計數器，若debt[] = 0時+1，若counter = temp時可能為解
         int counter = 0;
@@ -22,13 +25,12 @@ public:
         // 右指針
         for(int r_p = 0; r_p < s.length(); r_p++){
             char ch = s[r_p];
-            r_p++;
+            r_p++; //???
             // 若ch非我們在意的字元，skip
-            for (int i = 0; i < debt.size(); i++) {
-                if(debt.find(ch) == debt.end()){
-                    continue;
-                }
+            if(debt.find(ch) == debt.end()){
+                continue;
             }
+            cout<<"we care~~~ "<<ch<<endl;
             // ch為我們在意的字元
             debt[ch]--;
             if(debt[ch] == 0){
@@ -46,12 +48,10 @@ public:
                 }
 
                 char ch = s[l_p];
-                l_p++;
+                l_p++; //???
                 // 若ch非我們在意的字元，skip
-                for (int i = 0; i < debt.size(); i++) {
-                    if(debt.find(ch) == debt.end()){
-                        continue;
-                    }
+                if(debt.find(ch) == debt.end()){
+                    continue;
                 }
                 // ch為我們在意的字元
                 debt[ch]++;
@@ -62,7 +62,7 @@ public:
 
         }
 
-        if(cur_len == INT_MAX){
+        if(min_len == INT_MAX){
             return "";
         }
         return min_s;
