@@ -13,6 +13,7 @@
  //中序遍歷模板
 class Solution {
 public:
+    // # inorder順序 : 左->中->右
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> res;
         stack<TreeNode*> stk;

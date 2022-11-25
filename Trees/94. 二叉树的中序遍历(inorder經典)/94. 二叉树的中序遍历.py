@@ -5,6 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    # inorder順序 : 左->中->右
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         res = []
         stk = []
