@@ -30,6 +30,7 @@ public:
         // 中止條件
         if(root == nullptr) return "N";
 
+        // 注意 : 分隔符號為" "
         return to_string(root->val) + " " + serialize(root->left) + " " + serialize(root->right);
     }
 
