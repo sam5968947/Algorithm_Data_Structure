@@ -25,3 +25,36 @@ private:
     }
 
 };
+
+// 參考最长回文子串優化
+class Solution {
+public:
+    int countSubstrings(string s) {
+        int res = 0;
+
+        return count(s, res);
+    }
+
+private:
+    int count(string s, int cnt) {
+
+        for(int i = 0; i < s.size(); i++){
+
+            int l = i, r = i;
+            while(l >= 0 && r < s.size() && s[l] == s[r]){
+                cnt++;
+                l--;
+                r++;
+            }
+
+            l = i, r = i + 1;
+            while(l >= 0 && r < s.size() && s[l] == s[r]){
+                cnt++;
+                l--;
+                r++;
+            }
+        }
+        return cnt;
+    }
+
+};
