@@ -16,3 +16,21 @@ public:
         return rob[l-1];
     }
 };
+
+// 優化版
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int pre = 0;
+        int cur = 0;
+        int next;
+
+        for(int i = 0; i < nums.size(); i++){
+            next = max(nums[i] + pre, cur);
+            pre = cur;
+            cur = next;
+        }
+
+        return cur;
+    }
+};
