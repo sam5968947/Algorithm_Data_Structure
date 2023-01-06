@@ -1,33 +1,29 @@
 class Solution {
-public:
-    int hammingWeight(uint32_t n) {
-
+private:
+    int hammingweight(int num){
         int cnt = 0;
-        for(int i = 0; i < 32; i++){
-            cnt += 1 & n;
-            n = n >> 1;
+
+        while(num != 0){
+            num = num&(num - 1);
+            cnt++;
         }
 
         return cnt;
     }
-};
 
-// 優化解
-class Solution {
 public:
-    int hammingWeight(uint32_t n) {
+    vector<int> countBits(int n) {
     /*
     n&(n-1)作用：將n的二進製表示中的最低位為1的改為0，先看一個簡單的例子：
     n = 10100(二進制），則(n-1) = 10011 ==》n&(n-1) = 10000
     可以看到原本最低位為1的那位變為0。
-    */    
-    int cnt = 0;
+    */
+    vector<int> res;
 
-    while(n != 0){
-        n = n&(n - 1);
-        cnt++;
+    for(int i = 0; i < n + 1; i++){
+        res.push_back(hammingweight(i));
     }
 
-    return cnt;
+    return res;
     }
 };
