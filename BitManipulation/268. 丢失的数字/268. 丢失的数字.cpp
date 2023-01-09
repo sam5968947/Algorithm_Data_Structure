@@ -1,3 +1,4 @@
+// 方法1 : 複製一組由0~len(nums)的list，並與原list相減
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
